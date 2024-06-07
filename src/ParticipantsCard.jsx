@@ -66,9 +66,15 @@ function ParticipantsCard({ participant }) {
             <Bold>School/Company:</Bold> {participant.schoolCompany}
           </Info>
           <Info>
+            <Bold>MRSP Chapter:</Bold> {participant.chapter}
+          </Info>
+          <Info>
             {" "}
             <Bold>Category:</Bold>
             {participant.competitionCategory}
+          </Info>
+          <Info>
+            <Bold>Role:</Bold> {participant.role}
           </Info>
           <Info>
             <Bold>Email:</Bold> {participant.email}
