@@ -81,6 +81,8 @@ const GenerateQR = styled.button`
 function Register() {
   const options = ["Mechatronics", "Robotics", "IOT Skills", "R&D Exhibit"];
   const options2 = ["Member", "Non Member"];
+  const options3 = ["Participant", "Coach", "Visitor", "Officer", "VIP", "Judge", "Others"];
+  
   let isSubmitted = false;
 
   const [formData, setFormData] = useState({
@@ -92,6 +94,8 @@ function Register() {
     schoolCompanyAddress: "",
     competitionCategory: "",
     nonParticipant: "",
+    chapter:"",
+    role:"",
   });
 
   const handleChange = (event) => {
@@ -115,6 +119,8 @@ function Register() {
         schoolCompanyAddress: "",
         competitionCategory: "",
         nonParticipant: "",
+        chapter:"",
+        role:"",
       });
 
       isSubmitted = true;
@@ -134,13 +140,13 @@ function Register() {
     return (
       <>
         <Input
-          list="dropdown-options"
+          list="dropdown-options-1"
           placeholder={placeholder}
           onChange={handleChange}
           name="competitionCategory"
           value={formData.competitionCategory}
         />
-        <datalist id="dropdown-options">
+        <datalist id="dropdown-options-1">
           {options.map((option, index) => (
             <option key={index} value={option} />
           ))}
@@ -148,17 +154,18 @@ function Register() {
       </>
     );
   };
+  
   const DropdownInput2 = ({ options2, placeholder }) => {
     return (
       <>
         <Input
-          list="dropdown-options"
+          list="dropdown-options-2"
           placeholder={placeholder}
           onChange={handleChange}
           name="nonParticipant"
           value={formData.nonParticipant}
         />
-        <datalist id="dropdown-options">
+        <datalist id="dropdown-options-2">
           {options2.map((option, index) => (
             <option key={index} value={option} />
           ))}
@@ -166,6 +173,26 @@ function Register() {
       </>
     );
   };
+  
+  const DropdownInput3 = ({ options3, placeholder }) => {
+    return (
+      <>
+        <Input
+          list="dropdown-options-3"
+          placeholder={placeholder}
+          onChange={handleChange}
+          name="role"
+          value={formData.role}
+        />
+        <datalist id="dropdown-options-3">
+          {options3.map((option, index) => (
+            <option key={index} value={option} />
+          ))}
+        </datalist>
+      </>
+    );
+  };
+
 
   return (
     <>
@@ -199,6 +226,12 @@ function Register() {
               type="text"
               value={formData.phoneNumber}
               onChange={handleChange}></Input>
+              <Input
+              placeholder="MRSP Chapter"
+              name="chapter"
+              type="text"
+              value={formData.chapter}
+              onChange={handleChange}></Input>
             <Input
               placeholder="School/Company"
               name="schoolCompany"
@@ -211,6 +244,13 @@ function Register() {
               type="text"
               value={formData.schoolCompanyAddress}
               onChange={handleChange}></Input>
+
+            <DropdownInput3
+              options3={options3}
+              placeholder="Role"
+              onChange={handleChange}
+              name="role"
+            />
             <DropdownInput
               options={options}
               placeholder="Competition category"

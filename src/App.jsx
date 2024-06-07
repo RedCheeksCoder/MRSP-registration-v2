@@ -27,7 +27,7 @@ function App() {
     const { id } = useParams();
     const participant = participants.find((emp) => emp.id === parseInt(id));
     if (!participantDataLoaded || !participant) {
-      return <div>Loading...</div>; // Show loading message until data is fetched or participant is found
+      return <div>Loading...</div> // Show loading message until data is fetched or participant is found
     }
     return <ParticipantsCard participant={participant} />;
   };
@@ -42,6 +42,7 @@ function App() {
             path="participant/info/:id"
             element={<ParticipantCardWrapper />}
           />
+          
         </Routes>
       </Router>
     </>

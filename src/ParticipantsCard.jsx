@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+
 import styled from "styled-components";
+
 
 const Background = styled.div`
   background-image: url("/MRSP Website Phone Design.svg");
@@ -42,7 +43,7 @@ const Enter = styled.p`
 const Info = styled.p`
   text-align: left;
   padding-left: 0.5rem;
-  white-space: nowrap;
+  white-space: wrap;
 `;
 
 const Bold = styled.span`
