@@ -247,7 +247,7 @@ function Register() {
 
             <DropdownInput3
               options3={options3}
-              placeholder="Role"
+              placeholder="Register as"
               onChange={handleChange}
               name="role"
             />
@@ -259,7 +259,7 @@ function Register() {
             />
             <DropdownInput2
               options2={options2}
-              placeholder="Non participant"
+              placeholder="Join as"
               onChange={handleChange}
               name="nonParticipant"
             />
