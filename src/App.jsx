@@ -1,4 +1,3 @@
-import "./App.css";
 
 import {
   BrowserRouter as Router,
@@ -11,6 +10,7 @@ import Register from "./Register";
 import ParticipantsCard from "./ParticipantsCard";
 import { getDatabase } from "./apiDatabase";
 import { useEffect, useState } from "react";
+import Download from "./Download";
 
 function App() {
   const [participants, setParticipants] = useState([]);
@@ -32,6 +32,15 @@ function App() {
     return <ParticipantsCard participant={participant} />;
   };
 
+  const DownloadCardWrapper = () => {
+    const { id } = useParams();
+    const participant = participants.find((emp) => emp.id === parseInt(id));
+    if (!participantDataLoaded || !participant) {
+      return <div>Loading...</div> // Show loading message until data is fetched or participant is found
+    }
+    return <Download participant={participant} />;
+  };
+
   return (
     <>
       <Router>
@@ -42,7 +51,7 @@ function App() {
             path="participant/info/:id"
             element={<ParticipantCardWrapper />}
           />
-          
+          <Route path="participant/download/:id" element={<DownloadCardWrapper/>}/>
         </Routes>
       </Router>
     </>

@@ -4,6 +4,7 @@ import { getDatabase } from "./apiDatabase";
 import styled from "styled-components";
 import toast from "react-hot-toast";
 import QRCode from "qrcode";
+import Download from "./Download";
 // Styled-components
 const Container = styled.div`
   display: flex;
@@ -21,10 +22,9 @@ const ParticipantCard = styled.div`
   border-radius: 8px;
   padding: 16px;
   margin: 10px 5px;
-  width: 250px;
-  height:450px;
+  width: 350px;
+  height:500px;
   position: relative;
-
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
@@ -40,10 +40,22 @@ const ParticipantInfo = styled.p`
 `;
 
 const ButtonContainer = styled.div`
+position:absolute;
+  bottom:0;
+  left:60px;
   display: flex;
+  flex-direction:column;
   justify-content: center;
+  align-items:center;
   gap: 10px;
-
+  bottom:20px;
+  
+  a{
+    text-decoration:none;
+    color: #007bff;
+    font-size:1rem;
+    text-align:center;
+  }
 `;
 
 const CopyButton = styled.button`
@@ -51,34 +63,16 @@ const CopyButton = styled.button`
   border: none;
   color: white;
   border-radius: 5px;
-  width: 30px;
+  width: 200px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  position:bottom;
+  bottom:20px;
 
   &:hover {
     background: #0056b3;
-  }
-`;
-
-const DownloadButton = styled.button`
-  background: #28a745;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-
-  &:hover {
-    background: #1e7e34;
   }
 `;
 
@@ -135,12 +129,12 @@ function ListOfParticipants() {
               Address: {participant.schoolCompanyAddress}
             </ParticipantInfo>
             <ButtonContainer>
-
-            <CopyButton onClick={() => handleCopy(`https://mrsp-registration-v2.vercel.app/participant/info/${participant.id}`)}>
-                <i className="fas fa-copy"><img src="/copy-icon.png" alt="" height={20} width={20} /></i>
-              </CopyButton>
+              <CopyButton onClick={() => handleCopy(`https://mrsp-registration-v2.vercel.app/participant/info/${participant.id}`)}>
+                  Copy link
+                </CopyButton>
+                <a href={`https://mrsp-registration-v2.vercel.app/participant/download/${participant.id}`} target="_blank" rel="noopener noreferrer">PRINT ID</a>
             </ButtonContainer>
-            
+          
           </ParticipantCard>
         ))}
       </Container>
@@ -150,3 +144,4 @@ function ListOfParticipants() {
 }
 
 export default ListOfParticipants;
+

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useMutation } from "@tanstack/react-query";
 import { insertData } from "./apiInsertParticipant";
 import toast from "react-hot-toast";
+import   MemberNonMemberInput  from "./MemberNonMemberInput";
 
 const Background = styled.div`
   background-image: url("/MRSP Website Phone Design.svg");
@@ -80,7 +81,7 @@ const GenerateQR = styled.button`
 `;
 function Register() {
   const options = ["Mechatronics", "Robotics", "IOT Skills", "R&D Exhibit"];
-  const options2 = ["Member", "Non Member"];
+  // const options2 = ["Member", "Non Member"];
   const options3 = ["Participant", "Coach", "Visitor", "Officer", "VIP", "Judge", "Others"];
   
   let isSubmitted = false;
@@ -263,6 +264,8 @@ function Register() {
               onChange={handleChange}
               name="nonParticipant"
             />
+
+            
           </InputContainer>
 
           <ButtonForm onSubmit={handleSubmit}>
