@@ -81,7 +81,7 @@ const GenerateQR = styled.button`
 `;
 function Register() {
   const options = ["Mechatronics", "Robotics", "IOT Skills", "R&D Exhibit"];
-  // const options2 = ["Member", "Non Member"];
+   const options2 = ["Member", "Non Member"];
   const options3 = ["Participant", "Coach", "Visitor", "Officer", "VIP", "Judge", "Others"];
   
   let isSubmitted = false;
