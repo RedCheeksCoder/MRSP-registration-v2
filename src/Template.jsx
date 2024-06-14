@@ -108,7 +108,7 @@ font-size:2rem;
   }
 `;
 
-const Template = ({ name, chapter, school, role, competitionCategory, joinAs, qrCode, handleDownload }) => {
+const Template = ({ name, chapter, school, role, competitionCategory, joinAs, qrCode }) => {
   return (
     <>
     <Container>
@@ -142,4 +142,6 @@ const Template = ({ name, chapter, school, role, competitionCategory, joinAs, qr
 };
 
 export default Template;
+
+
 
